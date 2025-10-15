@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact – Dominic | Virtual Assistant</title>
+<style>
+  body {
+    background: #000 url('http://www.w3.org/2000/svg') repeat;
+    background-size: cover;
+    animation: moveBg 50s linear infinite;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  @keyframes moveBg {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+  }
+
+  header {
+    text-align: center;
+    padding: 60px 20px 30px;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+    color: #ffeb3b;
+  }
+
+  header p {
+    color: #ccc;
+    max-width: 650px;
+    margin: 10px auto;
+  }
+
+  .contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  form {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+  }
+
+  label {
+    color: #ffeb3b;
+    font-weight: 500;
+  }
+
+  input, textarea {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #fff;
+    font-size: 1em;
+    outline: none;
+    transition: box-shadow 0.3s;
+  }
+
+  input:focus, textarea:focus {
+    box-shadow: 0 0 10px rgba(255,235,59,0.8);
+  }
+
+  textarea {
+    resize: none;
+    height: 120px;
+  }
+
+  button {
+    background: #ffeb3b;
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #fff;
+    box-shadow: 0 0 15px #ffeb3b;
+  }
+
+  /* ✅ Confirmation Popup */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #ffeb3b;
+    border-radius: 12px;
+    padding: 25px 40px;
+    color: #ffeb3b;
+    font-size: 1.2em;
+    box-shadow: 0 0 25px rgba(255,235,59,0.5);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+    z-index: 999;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -45%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    color: #777;
+    font-size: 0.9em;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Me</h1>
+    <p>Have a project in mind or need help optimizing your workflow? Let’s connect.</p>
+  </header>
+
+  <section class="contact-container">
+    <form id="contactForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">✅ Message Sent Successfully!</div>
+
+  <footer>© 2025 Dominic | Virtual Assistant Portfolio</footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const popup = document.getElementById('popup');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // stop real submission
+      popup.style.display = 'block';
+      setTimeout(() => popup.style.display = 'none', 2500);
+      form.reset(); // clear fields
+    });
+  </script>
+
+</body>
+</html>
